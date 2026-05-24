@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edi Wilson Boniface Mekem – Cybersecurity Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#0a1628;--navy2:#112240;--navy3:#1d3461;--gold:#c9a84c;--gold2:#e8c97a;--white:#ffffff;--gray:#8892b0;--lightgray:#ccd6f6;--font-serif:'Playfair Display',Georgia,serif;--font-sans:'Source Sans 3',sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--lightgray);font-family:var(--font-sans);font-size:16px;line-height:1.7;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,0.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(201,168,76,0.15);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:60px;gap:1rem}
+.nav-logo{font-family:var(--font-serif);color:var(--gold);font-size:1rem;letter-spacing:0.04em;flex-shrink:0}
+.nav-links{display:flex;gap:1.2rem;flex-wrap:wrap;align-items:center}
+.nav-links a{color:var(--gray);text-decoration:none;font-size:0.76rem;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--gold)}
+
+/* LANG TOGGLE */
+.lang-toggle{display:flex;align-items:center;background:var(--navy2);border:1px solid rgba(201,168,76,0.25);border-radius:20px;padding:3px;gap:2px;flex-shrink:0}
+.lang-btn{background:none;border:none;color:var(--gray);font-family:var(--font-sans);font-size:0.72rem;font-weight:600;letter-spacing:0.08em;padding:4px 10px;border-radius:16px;cursor:pointer;transition:all 0.2s}
+.lang-btn.active{background:var(--gold);color:var(--navy)}
+.lang-btn:not(.active):hover{color:var(--gold)}
+
+section{padding:5rem 2rem;max-width:920px;margin:0 auto}
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:80px;max-width:920px;margin:0 auto;padding-left:2rem;padding-right:2rem}
+.hero-tag{color:var(--gold);font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.2rem;font-weight:300}
+.hero-name{font-family:var(--font-serif);font-size:clamp(2.4rem,5vw,4rem);color:var(--white);line-height:1.1;margin-bottom:0.4rem}
+.hero-title{font-family:var(--font-serif);font-size:clamp(1.1rem,2.5vw,1.6rem);color:var(--gold);margin-bottom:1.8rem;font-weight:400}
+.hero-desc{font-size:1rem;color:var(--gray);max-width:580px;line-height:1.8;margin-bottom:2rem}
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:2.5rem}
+.badge{background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);color:var(--gold2);padding:5px 14px;border-radius:2px;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:var(--navy);padding:11px 26px;text-decoration:none;font-weight:600;font-size:0.88rem;letter-spacing:0.05em;transition:background 0.2s;border-radius:2px}
+.btn-primary:hover{background:var(--gold2)}
+.btn-outline{border:1px solid var(--gold);color:var(--gold);padding:11px 26px;text-decoration:none;font-size:0.88rem;letter-spacing:0.05em;transition:all 0.2s;border-radius:2px}
+.btn-outline:hover{background:rgba(201,168,76,0.1)}
+.section-divider{width:50px;height:2px;background:var(--gold);margin-bottom:2rem}
+.section-label{color:var(--gold);font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.4rem}
+.section-title{font-family:var(--font-serif);font-size:1.9rem;color:var(--white);margin-bottom:0.8rem}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.about-text p{color:var(--gray);margin-bottom:1rem;line-height:1.8;font-size:0.97rem}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.stat-card{background:var(--navy2);border:1px solid rgba(201,168,76,0.15);padding:1.2rem;border-radius:4px}
+.stat-number{font-family:var(--font-serif);font-size:1.8rem;color:var(--gold);display:block}
+.stat-label{font-size:0.75rem;color:var(--gray);text-transform:uppercase;letter-spacing:0.08em}
+.lang-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:1.5rem}
+.lang-badge{background:var(--navy2);border:1px solid rgba(201,168,76,0.2);padding:8px 16px;border-radius:2px}
+.lang-name{color:var(--white);font-size:0.88rem;font-weight:600}
+.lang-level{color:var(--gold);font-size:0.75rem;display:block}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem}
+.skill-category{background:var(--navy2);border:1px solid rgba(201,168,76,0.12);padding:1.4rem;border-radius:4px}
+.skill-cat-title{color:var(--gold);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.9rem;font-weight:600}
+.skill-tags{display:flex;flex-wrap:wrap;gap:7px}
+.skill-tag{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);color:var(--lightgray);padding:4px 10px;border-radius:2px;font-size:0.74rem}
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:rgba(201,168,76,0.2)}
+.timeline-item{position:relative;margin-bottom:2.5rem;padding-left:1.5rem}
+.timeline-item::before{content:'';position:absolute;left:-2.45rem;top:7px;width:8px;height:8px;background:var(--gold);border-radius:50%}
+.timeline-period{color:var(--gold);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.2rem}
+.timeline-role{color:var(--white);font-size:1.05rem;font-weight:600;margin-bottom:0.1rem}
+.timeline-company{color:var(--gray);font-size:0.88rem;margin-bottom:0.7rem}
+.timeline-desc ul{color:var(--gray);font-size:0.9rem;line-height:1.7;padding-left:1.1rem}
+.timeline-desc ul li{margin-bottom:0.25rem}
+.timeline-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:0.8rem}
+.t-tag{background:rgba(29,52,97,0.8);border:1px solid rgba(100,140,200,0.2);color:#7ea8d8;padding:3px 9px;border-radius:2px;font-size:0.72rem}
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+.cert-card{background:var(--navy2);border:1px solid rgba(201,168,76,0.15);padding:1.2rem;border-radius:4px;border-top:3px solid var(--gold)}
+.cert-icon{font-size:1.4rem;margin-bottom:0.7rem}
+.cert-name{color:var(--white);font-size:0.88rem;font-weight:600;margin-bottom:0.25rem}
+.cert-issuer{color:var(--gray);font-size:0.77rem}
+.github-hero{background:var(--navy2);border:1px solid rgba(201,168,76,0.15);border-radius:6px;padding:2rem;display:flex;align-items:center;gap:2rem;margin-bottom:2rem;flex-wrap:wrap}
+.github-avatar{width:72px;height:72px;background:rgba(201,168,76,0.1);border:2px solid rgba(201,168,76,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.github-avatar svg{width:36px;height:36px;fill:var(--gold)}
+.github-info{flex:1;min-width:200px}
+.github-username{font-family:var(--font-serif);color:var(--white);font-size:1.3rem;margin-bottom:0.2rem}
+.github-url{color:var(--gold);font-size:0.88rem;text-decoration:none}
+.github-url:hover{text-decoration:underline}
+.github-bio{color:var(--gray);font-size:0.9rem;margin-top:0.5rem}
+.github-btn{background:var(--gold);color:var(--navy);padding:10px 22px;text-decoration:none;font-weight:600;font-size:0.85rem;border-radius:2px;white-space:nowrap;transition:background 0.2s;align-self:center}
+.github-btn:hover{background:var(--gold2)}
+.github-coming-soon{background:rgba(201,168,76,0.06);border:1px dashed rgba(201,168,76,0.3);border-radius:4px;padding:1.5rem 2rem;text-align:center;color:var(--gray);font-size:0.9rem;line-height:1.8}
+.github-coming-soon strong{color:var(--gold);display:block;font-size:1rem;margin-bottom:0.4rem}
+.course-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.5rem}
+.course-tab{background:var(--navy2);border:1px solid rgba(201,168,76,0.2);color:var(--gray);padding:7px 18px;border-radius:2px;cursor:pointer;font-family:var(--font-sans);font-size:0.82rem;letter-spacing:0.05em;transition:all 0.2s}
+.course-tab.active,.course-tab:hover{background:rgba(201,168,76,0.15);border-color:var(--gold);color:var(--gold)}
+.upload-area{background:var(--navy2);border:2px dashed rgba(201,168,76,0.25);border-radius:6px;padding:2.5rem 2rem;text-align:center;margin-bottom:2rem;transition:border-color 0.2s,background 0.2s}
+.upload-area.drag-over{border-color:var(--gold);background:rgba(201,168,76,0.06)}
+.upload-icon{font-size:2.5rem;margin-bottom:0.8rem}
+.upload-title{color:var(--white);font-size:1rem;font-weight:600;margin-bottom:0.3rem}
+.upload-sub{color:var(--gray);font-size:0.85rem}
+.upload-btn{background:var(--gold);color:var(--navy);padding:9px 22px;font-weight:600;font-size:0.85rem;border:none;cursor:pointer;border-radius:2px;font-family:var(--font-sans);transition:background 0.2s}
+.upload-btn:hover{background:var(--gold2)}
+.category-select{background:var(--navy);border:1px solid rgba(201,168,76,0.3);color:var(--lightgray);padding:9px 14px;border-radius:2px;font-family:var(--font-sans);font-size:0.85rem;cursor:pointer;outline:none}
+.course-list{display:flex;flex-direction:column;gap:10px}
+.course-item{background:var(--navy2);border:1px solid rgba(201,168,76,0.12);border-radius:4px;padding:1rem 1.2rem;display:flex;align-items:center;gap:1rem;transition:border-color 0.2s}
+.course-item:hover{border-color:rgba(201,168,76,0.3)}
+.course-item-icon{font-size:1.4rem;flex-shrink:0}
+.course-item-info{flex:1;min-width:0}
+.course-item-name{color:var(--white);font-size:0.92rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.course-item-meta{color:var(--gray);font-size:0.78rem;margin-top:2px}
+.course-cat-badge{display:inline-block;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);color:var(--gold);padding:2px 8px;border-radius:2px;font-size:0.7rem;margin-left:8px}
+.course-actions{display:flex;gap:8px;flex-shrink:0}
+.btn-download{background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);color:var(--gold);padding:6px 14px;border-radius:2px;cursor:pointer;font-size:0.78rem;font-family:var(--font-sans);transition:all 0.2s;text-decoration:none}
+.btn-download:hover{background:rgba(201,168,76,0.2)}
+.btn-delete{background:rgba(220,50,50,0.08);border:1px solid rgba(220,50,50,0.25);color:#e07070;padding:6px 10px;border-radius:2px;cursor:pointer;font-size:0.78rem;font-family:var(--font-sans);transition:all 0.2s}
+.btn-delete:hover{background:rgba(220,50,50,0.18)}
+.empty-msg{color:var(--gray);text-align:center;font-size:0.9rem;padding:2rem;border:1px dashed rgba(201,168,76,0.12);border-radius:4px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.contact-info p{color:var(--gray);line-height:1.8;margin-bottom:1.5rem;font-size:0.95rem}
+.contact-links{display:flex;flex-direction:column;gap:1rem}
+.contact-link{display:flex;align-items:center;gap:12px;color:var(--lightgray);text-decoration:none;font-size:0.92rem;transition:color 0.2s}
+.contact-link:hover{color:var(--gold)}
+.contact-link-icon{width:34px;height:34px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;flex-shrink:0}
+.contact-form{background:var(--navy2);border:1px solid rgba(201,168,76,0.12);padding:1.8rem;border-radius:4px}
+.form-group{margin-bottom:1.1rem}
+.form-label{display:block;color:var(--gray);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.4rem}
+.form-input,.form-textarea{width:100%;background:rgba(10,22,40,0.6);border:1px solid rgba(201,168,76,0.15);color:var(--lightgray);padding:9px 13px;font-family:var(--font-sans);font-size:0.92rem;border-radius:2px;outline:none;transition:border-color 0.2s}
+.form-input:focus,.form-textarea:focus{border-color:rgba(201,168,76,0.5)}
+.form-textarea{resize:vertical;min-height:100px}
+.form-btn{background:var(--gold);color:var(--navy);padding:10px 24px;font-weight:600;font-size:0.88rem;border:none;cursor:pointer;border-radius:2px;width:100%;transition:background 0.2s;font-family:var(--font-sans);letter-spacing:0.05em}
+.form-btn:hover{background:var(--gold2)}
+footer{border-top:1px solid rgba(201,168,76,0.1);text-align:center;padding:2rem;color:var(--gray);font-size:0.82rem}
+@media(max-width:700px){.about-grid,.contact-grid{grid-template-columns:1fr}.github-hero{flex-direction:column;gap:1.2rem}.nav-links{gap:0.6rem}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">E. W. B. Mekem</div>
+  <div class="nav-links">
+    <a href="#about" data-en="About" data-it="Chi Sono">About</a>
+    <a href="#skills" data-en="Skills" data-it="Competenze">Skills</a>
+    <a href="#experience" data-en="Experience" data-it="Esperienza">Experience</a>
+    <a href="#github">GitHub</a>
+    <a href="#courses" data-en="Courses" data-it="Corsi">Courses</a>
+    <a href="#contact" data-en="Contact" data-it="Contatti">Contact</a>
+  </div>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('it')">IT</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <p class="hero-tag" data-en="Cybersecurity Specialist · Blue Team · Automotive IT" data-it="Specialista Cybersecurity · Blue Team · IT Automotive">Cybersecurity Specialist · Blue Team · Automotive IT</p>
+  <h1 class="hero-name">Edi Wilson<br>Boniface Mekem</h1>
+  <h2 class="hero-title">Cybersecurity Analyst &amp; SW Test Engineer</h2>
+  <p class="hero-desc" data-en="MSc in Network &amp; Communication Engineering – Politecnico di Torino. 8+ years in IT with deep expertise in Blue Team operations, SIEM/SOAR, threat hunting, incident response, and automotive software testing." data-it="Laurea Magistrale in Ingegneria delle Reti e delle Comunicazioni – Politecnico di Torino. Oltre 8 anni di esperienza IT con profonda competenza in operazioni Blue Team, SIEM/SOAR, threat hunting, incident response e test software automotive.">MSc in Network &amp; Communication Engineering – Politecnico di Torino. 8+ years in IT with deep expertise in Blue Team operations, SIEM/SOAR, threat hunting, incident response, and automotive software testing.</p>
+  <div class="hero-badges">
+    <span class="badge">Blue Team</span>
+    <span class="badge">Splunk SIEM/SOAR</span>
+    <span class="badge">Threat Hunting</span>
+    <span class="badge">Incident Response</span>
+    <span class="badge">Automotive Testing</span>
+    <span class="badge">MITRE ATT&amp;CK</span>
+  </div>
+  <div class="hero-cta">
+    <a href="#contact" class="btn-primary" data-en="Get in Touch" data-it="Contattami">Get in Touch</a>
+    <a href="#github" class="btn-outline" data-en="View GitHub" data-it="Vedi GitHub">View GitHub</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label" data-en="Who I Am" data-it="Chi Sono">Who I Am</p>
+  <h2 class="section-title" data-en="About Me" data-it="Su di Me">About Me</h2>
+  <div class="section-divider"></div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p data-en="I am a Cameroonian IT professional based in Turin, Italy, holding a Master's degree in Network and Communication Engineering from Politecnico di Torino — one of Europe's leading technical universities." data-it="Sono un professionista IT camerunense residente a Torino, in possesso di una Laurea Magistrale in Ingegneria delle Reti e delle Comunicazioni presso il Politecnico di Torino — una delle migliori università tecniche d'Europa.">I am a Cameroonian IT professional based in Turin, Italy, holding a Master's degree in Network and Communication Engineering from Politecnico di Torino — one of Europe's leading technical universities.</p>
+      <p data-en="With over 8 years of hands-on experience, I have built a strong background spanning software development, automotive software testing, and cybersecurity. Over the last 5 years I have focused on Blue Team operations as Cybersecurity Specialist and Analyst for enterprise clients." data-it="Con oltre 8 anni di esperienza pratica, ho sviluppato una solida competenza che spazia dallo sviluppo software, al testing automotive, fino alla cybersecurity. Negli ultimi 5 anni mi sono focalizzato sulle operazioni Blue Team come Specialista e Analista Cybersecurity per clienti enterprise.">With over 8 years of hands-on experience, I have built a strong background spanning software development, automotive software testing, and cybersecurity. Over the last 5 years I have focused on Blue Team operations as Cybersecurity Specialist and Analyst for enterprise clients.</p>
+      <p data-en="My mission is to build resilient ecosystems against modern threats, combining technical depth with frameworks such as NIST, ISO 27001, and MITRE ATT&amp;CK." data-it="La mia missione è costruire ecosistemi resilienti contro le minacce moderne, combinando profondità tecnica con framework come NIST, ISO 27001 e MITRE ATT&amp;CK.">My mission is to build resilient ecosystems against modern threats, combining technical depth with frameworks such as NIST, ISO 27001, and MITRE ATT&amp;CK.</p>
+      <div class="lang-badges">
+        <div class="lang-badge"><span class="lang-name">Français</span><span class="lang-level" data-en="Mother Tongue" data-it="Lingua Madre">Mother Tongue</span></div>
+        <div class="lang-badge"><span class="lang-name">Italiano</span><span class="lang-level" data-en="Excellent" data-it="Eccellente">Excellent</span></div>
+        <div class="lang-badge"><span class="lang-name">English</span><span class="lang-level" data-en="Professional" data-it="Professionale">Professional</span></div>
+      </div>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card"><span class="stat-number">8+</span><span class="stat-label" data-en="Years in IT" data-it="Anni in IT">Years in IT</span></div>
+      <div class="stat-card"><span class="stat-number">5</span><span class="stat-label" data-en="Years Cybersecurity" data-it="Anni Cybersecurity">Years Cybersecurity</span></div>
+      <div class="stat-card"><span class="stat-number">MSc</span><span class="stat-label" data-en="Politecnico Torino" data-it="Politecnico Torino">Politecnico Torino</span></div>
+      <div class="stat-card"><span class="stat-number">3</span><span class="stat-label" data-en="Languages" data-it="Lingue">Languages</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label" data-en="What I Do" data-it="Cosa Faccio">What I Do</p>
+  <h2 class="section-title" data-en="Technical Skills" data-it="Competenze Tecniche">Technical Skills</h2>
+  <div class="section-divider"></div>
+  <div class="skills-grid">
+    <div class="skill-category"><p class="skill-cat-title">Blue Team &amp; SOC</p><div class="skill-tags"><span class="skill-tag">Threat Hunting</span><span class="skill-tag">Incident Response</span><span class="skill-tag">Threat Intelligence</span><span class="skill-tag">Malware Analysis</span><span class="skill-tag">Vulnerability Management</span></div></div>
+    <div class="skill-category"><p class="skill-cat-title">SIEM / SOAR / XDR</p><div class="skill-tags"><span class="skill-tag">Splunk Enterprise</span><span class="skill-tag">Splunk SOAR</span><span class="skill-tag">Cynet XDR</span><span class="skill-tag">Darktrace NDR</span><span class="skill-tag">MS Defender</span><span class="skill-tag">ELK Stack</span></div></div>
+    <div class="skill-category"><p class="skill-cat-title">Pen Testing &amp; VA</p><div class="skill-tags"><span class="skill-tag">Kali Linux</span><span class="skill-tag">Burp Suite</span><span class="skill-tag">Nessus</span><span class="skill-tag">Qualys</span><span class="skill-tag">BloodHound</span><span class="skill-tag">SKYBOX</span></div></div>
+    <div class="skill-category"><p class="skill-cat-title">CTI / OSINT</p><div class="skill-tags"><span class="skill-tag">Maltego</span><span class="skill-tag">Shodan</span><span class="skill-tag">MISP</span><span class="skill-tag">Recorded Future</span><span class="skill-tag">SpiderFoot</span><span class="skill-tag">TheHarvester</span></div></div>
+    <div class="skill-category"><p class="skill-cat-title" data-en="Frameworks" data-it="Framework">Frameworks</p><div class="skill-tags"><span class="skill-tag">MITRE ATT&amp;CK</span><span class="skill-tag">NIST</span><span class="skill-tag">ISO 27001</span><span class="skill-tag">OWASP</span><span class="skill-tag">Diamond Model</span><span class="skill-tag">Pyramid of Pain</span></div></div>
+    <div class="skill-category"><p class="skill-cat-title" data-en="Dev &amp; Automation" data-it="Sviluppo &amp; Automazione">Dev &amp; Automation</p><div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">SPL / KQL</span><span class="skill-tag">Bash / Shell</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Docker</span><span class="skill-tag">Azure / Entra ID</span></div></div>
+    <div class="skill-category"><p class="skill-cat-title" data-en="SW Testing" data-it="Test Software">SW Testing</p><div class="skill-tags"><span class="skill-tag">CANalyzer</span><span class="skill-tag">DIanalyzer</span><span class="skill-tag">Selenium</span><span class="skill-tag">Jenkins</span><span class="skill-tag">Postman</span><span class="skill-tag">Polarion</span></div></div>
+    <div class="skill-category"><p class="skill-cat-title" data-en="Malware &amp; Forensics" data-it="Malware &amp; Forensica">Malware &amp; Forensics</p><div class="skill-tags"><span class="skill-tag">Any.run</span><span class="skill-tag">Joesandbox</span><span class="skill-tag">Volatility</span><span class="skill-tag">FTK Imager</span><span class="skill-tag">CyberChef</span><span class="skill-tag">VirusTotal</span></div></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="section-label" data-en="My Journey" data-it="Il Mio Percorso">My Journey</p>
+  <h2 class="section-title" data-en="Work Experience" data-it="Esperienze Lavorative">Work Experience</h2>
+  <div class="section-divider"></div>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <p class="timeline-period" data-en="Nov 2023 – Present" data-it="Nov 2023 – Presente">Nov 2023 – Present</p>
+      <p class="timeline-role" data-en="Cybersecurity Specialist" data-it="Specialista Cybersecurity">Cybersecurity Specialist</p>
+      <p class="timeline-company">IREN SPA · Turin, Italy (Consulting)</p>
+      <div class="timeline-desc">
+        <ul class="en-content">
+          <li>Threat hunting, threat intelligence and incident response handling</li>
+          <li>Malware analysis and vulnerability management</li>
+          <li>Automated IoC distribution via Python scripting</li>
+          <li>Real-time monitoring from FW/IDS, CTI, SIEM, XDR, NDR tools</li>
+          <li>Tuning correlation rules in Splunk SIEM; writing playbooks for incident response</li>
+          <li>Scouting and PoC for integrating security solutions in the perimeter</li>
+        </ul>
+        <ul class="it-content" style="display:none">
+          <li>Threat hunting, threat intelligence e gestione degli incident response</li>
+          <li>Analisi malware e gestione delle vulnerabilità</li>
+          <li>Automazione della distribuzione IoC tramite script Python</li>
+          <li>Monitoraggio in tempo reale da strumenti FW/IDS, CTI, SIEM, XDR, NDR</li>
+          <li>Tuning delle regole di correlazione in Splunk SIEM; scrittura playbook per incident response</li>
+          <li>Scouting e PoC per l'integrazione di soluzioni di sicurezza nel perimetro</li>
+        </ul>
+      </div>
+      <div class="timeline-tags"><span class="t-tag">Splunk SIEM</span><span class="t-tag">Threat Hunting</span><span class="t-tag">XDR/NDR</span><span class="t-tag">Python</span><span class="t-tag">SOAR</span></div>
+    </div>
+
+    <div class="timeline-item">
+      <p class="timeline-period">March 2021 – October 2023</p>
+      <p class="timeline-role" data-en="Cybersecurity Analyst" data-it="Analista Cybersecurity">Cybersecurity Analyst</p>
+      <p class="timeline-company">AIZOON TECHNOLOGY · Turin, Italy (Consulting)</p>
+      <div class="timeline-desc">
+        <ul class="en-content">
+          <li>Monitored WAF traffic (Mithril, ModSecurity) for anomalous patterns</li>
+          <li>Implemented custom WAF rules and SIEM correlation rules</li>
+          <li>Incident handling and malware analysis (WannaCry, Emotet, Ursnif, Webshell)</li>
+          <li>Onboarded log source integrations in Splunk SIEM</li>
+          <li>Wrote playbooks and documentation for incident response</li>
+        </ul>
+        <ul class="it-content" style="display:none">
+          <li>Monitoraggio del traffico WAF (Mithril, ModSecurity) per pattern anomali</li>
+          <li>Implementazione di regole WAF personalizzate e regole di correlazione SIEM</li>
+          <li>Gestione degli incidenti e analisi malware (WannaCry, Emotet, Ursnif, Webshell)</li>
+          <li>Integrazione di sorgenti log in Splunk SIEM</li>
+          <li>Redazione di playbook e documentazione per incident response</li>
+        </ul>
+      </div>
+      <div class="timeline-tags"><span class="t-tag">WAF</span><span class="t-tag">Splunk</span><span class="t-tag">Incident Handling</span><span class="t-tag">Malware Analysis</span></div>
+    </div>
+
+    <div class="timeline-item">
+      <p class="timeline-period">May 2019 – March 2021</p>
+      <p class="timeline-role" data-en="IT Service Desk / Help Desk" data-it="IT Service Desk / Help Desk">IT Service Desk / Help Desk</p>
+      <p class="timeline-company">EUROFINS SPA · France (Consulting)</p>
+      <div class="timeline-desc">
+        <ul class="en-content">
+          <li>Checkpoint Firewall rule configuration and security patch deployment</li>
+          <li>Active Directory: user, group and GPO management</li>
+          <li>Software distribution via SCCM</li>
+        </ul>
+        <ul class="it-content" style="display:none">
+          <li>Configurazione regole Firewall Checkpoint e distribuzione patch di sicurezza</li>
+          <li>Active Directory: gestione utenti, gruppi e GPO</li>
+          <li>Distribuzione software tramite SCCM</li>
+        </ul>
+      </div>
+      <div class="timeline-tags"><span class="t-tag">SCCM</span><span class="t-tag">Active Directory</span><span class="t-tag">Firewall</span></div>
+    </div>
+
+    <div class="timeline-item">
+      <p class="timeline-period">Dec 2018 – April 2019</p>
+      <p class="timeline-role" data-en="SW Functional Tester" data-it="Tester Funzionale SW">SW Functional Tester</p>
+      <p class="timeline-company">MAGNETI MARELLI SPA · Italy (Consulting)</p>
+      <div class="timeline-desc">
+        <ul class="en-content">
+          <li>Functional requirements analysis and execution of test plans</li>
+          <li>Issues tracking and follow-up</li>
+        </ul>
+        <ul class="it-content" style="display:none">
+          <li>Analisi dei requisiti funzionali ed esecuzione dei piani di test</li>
+          <li>Tracciamento e follow-up delle anomalie</li>
+        </ul>
+      </div>
+      <div class="timeline-tags"><span class="t-tag">CANalyzer</span><span class="t-tag">Test Plans</span><span class="t-tag">Automotive</span></div>
+    </div>
+
+    <div class="timeline-item">
+      <p class="timeline-period">March 2018 – Nov 2018</p>
+      <p class="timeline-role" data-en="Functional Analyst" data-it="Analista Funzionale">Functional Analyst</p>
+      <p class="timeline-company">Fiat Chrysler Automobiles (FCA) · Turin, Italy</p>
+      <div class="timeline-desc">
+        <ul class="en-content">
+          <li>Connected Car project: requirements and specifications analysis</li>
+          <li>UCL (Uconnect Live) and Telepass integration within Mopar Connect</li>
+        </ul>
+        <ul class="it-content" style="display:none">
+          <li>Progetto Connected Car: analisi dei requisiti e delle specifiche</li>
+          <li>Integrazione UCL (Uconnect Live) e Telepass nel progetto Mopar Connect</li>
+        </ul>
+      </div>
+      <div class="timeline-tags"><span class="t-tag">Connected Car</span><span class="t-tag">Uconnect</span><span class="t-tag">Telepass</span></div>
+    </div>
+
+    <div class="timeline-item">
+      <p class="timeline-period">Sept 2017 – March 2018</p>
+      <p class="timeline-role" data-en="Analyst &amp; Web Developer" data-it="Analista &amp; Sviluppatore Web">Analyst &amp; Web Developer</p>
+      <p class="timeline-company">FUTURO (SGI) · Milan, Italy (Consulting)</p>
+      <div class="timeline-desc">
+        <ul class="en-content"><li>Development and testing of web apps and RESTful APIs for Telemarketing clients</li></ul>
+        <ul class="it-content" style="display:none"><li>Sviluppo e test di applicazioni web e API RESTful per clienti nel settore Telemarketing</li></ul>
+      </div>
+      <div class="timeline-tags"><span class="t-tag">REST API</span><span class="t-tag">JavaScript</span><span class="t-tag">Web Development</span></div>
+    </div>
+
+    <div class="timeline-item">
+      <p class="timeline-period">May 2017 – July 2017</p>
+      <p class="timeline-role" data-en="Penetration Tester &amp; Security Analyst" data-it="Penetration Tester &amp; Analista di Sicurezza">Penetration Tester &amp; Security Analyst</p>
+      <p class="timeline-company">NAIS SRL · Italy (Internship)</p>
+      <div class="timeline-desc">
+        <ul class="en-content">
+          <li>Penetration testing and vulnerability assessment execution</li>
+          <li>Security patch distribution via WSUS; firewall rules configuration</li>
+        </ul>
+        <ul class="it-content" style="display:none">
+          <li>Esecuzione di penetration test e vulnerability assessment</li>
+          <li>Distribuzione patch di sicurezza tramite WSUS; configurazione regole firewall</li>
+        </ul>
+      </div>
+      <div class="timeline-tags"><span class="t-tag">Pen Testing</span><span class="t-tag">WSUS</span><span class="t-tag">Firewall</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <p class="section-label" data-en="Credentials" data-it="Credenziali">Credentials</p>
+  <h2 class="section-title" data-en="Education &amp; Certifications" data-it="Formazione &amp; Certificazioni">Education &amp; Certifications</h2>
+  <div class="section-divider"></div>
+  <div class="certs-grid">
+    <div class="cert-card"><div class="cert-icon">🎓</div><p class="cert-name" data-en="MSc Network &amp; Communication Engineering" data-it="Laurea Magistrale Ingegneria Reti e Comunicazioni">MSc Network &amp; Communication Engineering</p><p class="cert-issuer">Politecnico di Torino · 2017</p></div>
+    <div class="cert-card"><div class="cert-icon">🛡️</div><p class="cert-name">EC-Council Ethical Hacking (CEH)</p><p class="cert-issuer">I VOLTA Institut Turin · 2021</p></div>
+    <div class="cert-card"><div class="cert-icon">🔍</div><p class="cert-name">Splunk Core Certified</p><p class="cert-issuer">Splunk</p></div>
+    <div class="cert-card"><div class="cert-icon">☁️</div><p class="cert-name">Microsoft Azure / Entra ID</p><p class="cert-issuer">Microsoft</p></div>
+  </div>
+</section>
+
+<!-- GITHUB -->
+<section id="github">
+  <p class="section-label" data-en="Open Source" data-it="Open Source">Open Source</p>
+  <h2 class="section-title" data-en="GitHub Profile" data-it="Profilo GitHub">GitHub Profile</h2>
+  <div class="section-divider"></div>
+  <div class="github-hero">
+    <div class="github-avatar">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+    </div>
+    <div class="github-info">
+      <p class="github-username">eddwil32</p>
+      <a href="https://github.com/eddwil32" class="github-url" target="_blank">github.com/eddwil32</a>
+      <p class="github-bio" data-en="Cybersecurity specialist sharing scripts, SIEM rules, threat hunting tools and security automation projects." data-it="Specialista cybersecurity che condivide script, regole SIEM, strumenti di threat hunting e progetti di automazione della sicurezza.">Cybersecurity specialist sharing scripts, SIEM rules, threat hunting tools and security automation projects.</p>
+    </div>
+    <a href="https://github.com/eddwil32" class="github-btn" target="_blank" data-en="View Profile →" data-it="Vedi Profilo →">View Profile →</a>
+  </div>
+  <div class="github-coming-soon">
+    <strong class="en-content" data-en="🚀 Projects coming soon">🚀 Projects coming soon</strong>
+    <strong class="it-content" style="display:none">🚀 Progetti in arrivo</strong>
+    <span class="en-content">This section will showcase my open-source security tools, SPL detection rules, Python automation scripts and threat hunting playbooks. Stay tuned!</span>
+    <span class="it-content" style="display:none">Questa sezione presenterà i miei strumenti di sicurezza open-source, regole di rilevamento SPL, script Python di automazione e playbook di threat hunting. Restate sintonizzati!</span>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section id="courses">
+  <p class="section-label" data-en="Continuous Learning" data-it="Formazione Continua">Continuous Learning</p>
+  <h2 class="section-title" data-en="Courses &amp; Training Materials" data-it="Corsi &amp; Materiali Formativi">Courses &amp; Training Materials</h2>
+  <div class="section-divider"></div>
+  <p style="color:var(--gray);margin-bottom:2rem;font-size:0.95rem" data-en="Upload and manage your training PDFs by category. Files are stored locally in your browser." data-it="Carica e gestisci i tuoi PDF formativi per categoria. I file vengono conservati localmente nel browser.">Upload and manage your training PDFs by category. Files are stored locally in your browser.</p>
+
+  <div class="course-tabs">
+    <button class="course-tab active" onclick="filterCourses('all',event)" data-en="All" data-it="Tutti">All</button>
+    <button class="course-tab" onclick="filterCourses('linux',event)">🐧 Linux</button>
+    <button class="course-tab" onclick="filterCourses('cloud',event)" data-en="☁️ Cloud &amp; DevOps" data-it="☁️ Cloud &amp; DevOps">☁️ Cloud &amp; DevOps</button>
+    <button class="course-tab" onclick="filterCourses('cyber',event)" data-en="🛡️ Cybersecurity" data-it="🛡️ Cybersecurity">🛡️ Cybersecurity</button>
+  </div>
+
+  <div class="upload-area" id="uploadArea" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="handleDrop(event)">
+    <div class="upload-icon">📄</div>
+    <p class="upload-title" data-en="Drag &amp; Drop your PDF here" data-it="Trascina qui il tuo PDF">Drag &amp; Drop your PDF here</p>
+    <p class="upload-sub" data-en="or click to browse files" data-it="oppure clicca per sfogliare">or click to browse files</p>
+    <input type="file" id="fileInput" accept=".pdf" multiple style="display:none" onchange="handleFileSelect(event)">
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1rem">
+      <button class="upload-btn" onclick="document.getElementById('fileInput').click()" data-en="Browse PDF" data-it="Sfoglia PDF">Browse PDF</button>
+      <select id="categorySelect" class="category-select">
+        <option value="linux">🐧 Linux</option>
+        <option value="cloud">☁️ Cloud &amp; DevOps</option>
+        <option value="cyber">🛡️ Cybersecurity</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="courseList" class="course-list"></div>
+  <p id="emptyMsg" class="empty-msg" data-en="No courses uploaded yet. Add your first PDF above!" data-it="Nessun corso caricato. Aggiungi il tuo primo PDF qui sopra!" style="display:none">No courses uploaded yet. Add your first PDF above!</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label" data-en="Let's Connect" data-it="Connettiamoci">Let's Connect</p>
+  <h2 class="section-title" data-en="Get in Touch" data-it="Contattami">Get in Touch</h2>
+  <div class="section-divider"></div>
+  <div class="contact-grid">
+    <div>
+      <div class="contact-info"><p data-en="Open to new cybersecurity opportunities — Blue Team, SOC, threat intelligence, or security engineering roles. Feel free to reach out for collaborations or positions in Italy and Europe." data-it="Aperto a nuove opportunità in cybersecurity — ruoli Blue Team, SOC, threat intelligence o security engineering. Contattatemi per collaborazioni o posizioni in Italia e in Europa.">Open to new cybersecurity opportunities — Blue Team, SOC, threat intelligence, or security engineering roles. Feel free to reach out for collaborations or positions in Italy and Europe.</p></div>
+      <div class="contact-links">
+        <a href="tel:+393286665877" class="contact-link"><div class="contact-link-icon">📞</div>(+39) 328 666 5877</a>
+        <a href="mailto:Mekemisme2007@yahoo.fr" class="contact-link"><div class="contact-link-icon">✉️</div>Mekemisme2007@yahoo.fr</a>
+        <a href="https://www.linkedin.com/in/edi-wilson-boniface-mekem-zonteu-02812321/" class="contact-link"><div class="contact-link-icon">💼</div>LinkedIn Profile</a>
+        <a href="https://github.com/eddwil32" class="contact-link"><div class="contact-link-icon">🐙</div>GitHub: eddwil32</a>
+        <a href="#" class="contact-link"><div class="contact-link-icon">📍</div>Turin, Italy</a>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="form-group"><label class="form-label" data-en="Your Name" data-it="Il tuo Nome">Your Name</label><input type="text" class="form-input" data-en-placeholder="Jane Smith" data-it-placeholder="Mario Rossi" placeholder="Jane Smith"></div>
+      <div class="form-group"><label class="form-label" data-en="Email Address" data-it="Indirizzo Email">Email Address</label><input type="email" class="form-input" placeholder="email@company.com"></div>
+      <div class="form-group"><label class="form-label" data-en="Message" data-it="Messaggio">Message</label><textarea class="form-textarea" data-en-placeholder="Tell me about the opportunity..." data-it-placeholder="Raccontami dell'opportunità..." placeholder="Tell me about the opportunity..."></textarea></div>
+      <button class="form-btn" id="sendBtn" data-en="Send Message" data-it="Invia Messaggio" onclick="submitForm(this)">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Edi Wilson Boniface Mekem &middot; Cybersecurity Specialist &middot; Turin, Italy &middot; 2025</p>
+</footer>
+
+<script>
+// ── LANGUAGE SYSTEM ──────────────────────────────────────────
+let currentLang = 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+  // toggle buttons
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(b => { if(b.textContent.toLowerCase()===lang) b.classList.add('active'); });
+
+  // translate all data-en / data-it elements
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = el.getAttribute('data-' + lang) || el.getAttribute('data-en');
+  });
+
+  // placeholders
+  document.querySelectorAll('[data-en-placeholder]').forEach(el => {
+    el.placeholder = el.getAttribute('data-' + lang + '-placeholder') || el.getAttribute('data-en-placeholder');
+  });
+
+  // show/hide .en-content / .it-content
+  document.querySelectorAll('.en-content').forEach(el => el.style.display = lang==='en' ? '' : 'none');
+  document.querySelectorAll('.it-content').forEach(el => el.style.display = lang==='it' ? '' : 'none');
+
+  // update empty message
+  renderCourses();
+}
+
+// ── COURSES SYSTEM ───────────────────────────────────────────
+// Pre-loaded static courses (hosted alongside index.html)
+let courses = [
+  {
+    id: 1,
+    name: 'Threat Hunting Playbook',
+    size: 'Static',
+    category: 'cyber',
+    url: 'courses/THREAT_HUNTING_PLAYBOOK.pdf',
+    filename: 'THREAT_HUNTING_PLAYBOOK.pdf',
+    static: true,
+    desc: 'Proactive security posture – IOCs, threat hunting scenarios, MITRE ATT&CK use cases'
+  }
+];
+let activeFilter = 'all';
+const catLabels = {linux:'🐧 Linux', cloud:'☁️ Cloud & DevOps', cyber:'🛡️ Cybersecurity'};
+
+function handleDrop(e) {
+  e.preventDefault();
+  document.getElementById('uploadArea').classList.remove('drag-over');
+  const files = Array.from(e.dataTransfer.files).filter(f => f.type === 'application/pdf');
+  if (files.length) addFiles(files);
+}
+function handleFileSelect(e) {
+  addFiles(Array.from(e.target.files));
+  e.target.value = '';
+}
+function addFiles(files) {
+  const cat = document.getElementById('categorySelect').value;
+  files.forEach(file => {
+    courses.push({ id: Date.now()+Math.random(), name: file.name.replace('.pdf',''), size: (file.size/1024).toFixed(0)+' KB', category: cat, url: URL.createObjectURL(file), filename: file.name });
+  });
+  renderCourses();
+}
+function filterCourses(cat, e) {
+  activeFilter = cat;
+  document.querySelectorAll('.course-tab').forEach(t => t.classList.remove('active'));
+  if(e && e.target) e.target.classList.add('active');
+  renderCourses();
+}
+function deleteCourse(id) {
+  courses = courses.filter(c => c.id !== id);
+  renderCourses();
+}
+function renderCourses() {
+  const list = document.getElementById('courseList');
+  const emptyMsg = document.getElementById('emptyMsg');
+  const filtered = activeFilter === 'all' ? courses : courses.filter(c => c.category === activeFilter);
+  const dl = currentLang === 'it' ? '⬇ Scarica' : '⬇ Download';
+  if (filtered.length === 0) {
+    list.innerHTML = '';
+    emptyMsg.style.display = 'block';
+    emptyMsg.textContent = courses.length === 0
+      ? (currentLang==='it' ? 'Nessun corso caricato. Aggiungi il tuo primo PDF qui sopra!' : 'No courses uploaded yet. Add your first PDF above!')
+      : (currentLang==='it' ? 'Nessun corso in questa categoria.' : 'No courses in this category yet.');
+    return;
+  }
+  emptyMsg.style.display = 'none';
+  list.innerHTML = filtered.map(c => `
+    <div class="course-item">
+      <div class="course-item-icon">📋</div>
+      <div class="course-item-info">
+        <div class="course-item-name">${c.name}<span class="course-cat-badge">${catLabels[c.category]}</span>${c.static ? '<span class="course-cat-badge" style="background:rgba(60,180,100,0.1);border-color:rgba(60,180,100,0.3);color:#6dbf8b;margin-left:4px">Included</span>' : ''}</div>
+        <div class="course-item-meta">${c.desc || (c.size + ' · PDF')}</div>
+      </div>
+      <div class="course-actions">
+        <a href="${c.url}" download="${c.filename}" class="btn-download">${dl}</a>
+        ${c.static ? '' : `<button class="btn-delete" onclick="deleteCourse(${c.id})">✕</button>`}
+      </div>
+    </div>`).join('');
+}
+
+function submitForm(btn) {
+  btn.textContent = currentLang === 'it' ? 'Messaggio Inviato ✓' : 'Message Sent ✓';
+  btn.style.background = '#3b7a57';
+}
+
+renderCourses();
+</script>
+</body>
+</html>
