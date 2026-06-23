@@ -4,6 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Edi Wilson Boniface Mekem – Cybersecurity Portfolio</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Cybersecurity Specialist and SW Test Engineer with 8+ years of experience in Blue Team operations, SIEM/SOAR, Threat Hunting, Incident Response and Automotive IT. Based in Turin, Italy.">
+<meta name="keywords" content="cybersecurity, blue team, SIEM, Splunk, threat hunting, incident response, SOC analyst, penetration testing, MITRE ATT&CK, automotive security, Turin, Italy">
+<meta name="author" content="Edi Wilson Boniface Mekem">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://edimekem.eu.org">
+
+<!-- Open Graph (LinkedIn, Facebook preview) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://edimekem.eu.org">
+<meta property="og:title" content="Edi Wilson Boniface Mekem – Cybersecurity Portfolio">
+<meta property="og:description" content="Cybersecurity Specialist | Blue Team | SIEM/SOAR | Threat Hunting | 8+ years IT experience | Turin, Italy">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="edimekem.eu.org">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Edi Wilson Boniface Mekem – Cybersecurity Portfolio">
+<meta name="twitter:description" content="Cybersecurity Specialist | Blue Team | SIEM/SOAR | Threat Hunting | Turin, Italy">
+
+<!-- Theme color for mobile browsers -->
+<meta name="theme-color" content="#0a1628">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -120,6 +143,25 @@ section{padding:5rem 2rem;max-width:920px;margin:0 auto}
 .form-textarea{resize:vertical;min-height:100px}
 .form-btn{background:var(--gold);color:var(--navy);padding:10px 24px;font-weight:600;font-size:0.88rem;border:none;cursor:pointer;border-radius:2px;width:100%;transition:background 0.2s;font-family:var(--font-sans);letter-spacing:0.05em}
 .form-btn:hover{background:var(--gold2)}
+/* PROJECTS SECTION */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem}
+.project-card{background:var(--navy2);border:1px solid rgba(201,168,76,0.15);border-radius:6px;padding:1.6rem;display:flex;flex-direction:column;gap:1rem;transition:border-color 0.25s,transform 0.2s}
+.project-card:hover{border-color:rgba(201,168,76,0.45);transform:translateY(-3px)}
+.project-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.project-icon{font-size:2rem;flex-shrink:0}
+.project-status{font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:3px 10px;border-radius:2px;white-space:nowrap}
+.status-done{background:rgba(60,180,100,0.12);border:1px solid rgba(60,180,100,0.3);color:#6dbf8b}
+.status-wip{background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);color:var(--gold)}
+.project-name{color:var(--white);font-family:var(--font-serif);font-size:1.05rem;font-weight:600;line-height:1.3}
+.project-desc{color:var(--gray);font-size:0.88rem;line-height:1.7;flex:1}
+.project-stack{display:flex;flex-wrap:wrap;gap:6px}
+.project-tag{background:rgba(29,52,97,0.8);border:1px solid rgba(100,140,200,0.2);color:#7ea8d8;padding:3px 9px;border-radius:2px;font-size:0.71rem}
+.project-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:0.4rem}
+.project-link{display:inline-flex;align-items:center;gap:5px;font-size:0.78rem;padding:6px 14px;border-radius:2px;text-decoration:none;transition:all 0.2s;font-weight:600}
+.project-link-github{background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);color:var(--gold)}
+.project-link-github:hover{background:rgba(201,168,76,0.22)}
+.project-link-docs{background:rgba(100,140,200,0.1);border:1px solid rgba(100,140,200,0.25);color:#7ea8d8}
+.project-link-docs:hover{background:rgba(100,140,200,0.2)}
 footer{border-top:1px solid rgba(201,168,76,0.1);text-align:center;padding:2rem;color:var(--gray);font-size:0.82rem}
 @media(max-width:700px){.about-grid,.contact-grid{grid-template-columns:1fr}.github-hero{flex-direction:column;gap:1.2rem}.nav-links{gap:0.6rem}}
 </style>
@@ -133,6 +175,7 @@ footer{border-top:1px solid rgba(201,168,76,0.1);text-align:center;padding:2rem;
     <a href="#skills" data-en="Skills" data-it="Competenze">Skills</a>
     <a href="#experience" data-en="Experience" data-it="Esperienza">Experience</a>
     <a href="#github">GitHub</a>
+    <a href="#projects" data-en="Projects" data-it="Progetti">Projects</a>
     <a href="#courses" data-en="Courses" data-it="Corsi">Courses</a>
     <a href="#contact" data-en="Contact" data-it="Contatti">Contact</a>
   </div>
@@ -377,6 +420,83 @@ footer{border-top:1px solid rgba(201,168,76,0.1);text-align:center;padding:2rem;
     <strong class="it-content" style="display:none">🚀 Progetti in arrivo</strong>
     <span class="en-content">This section will showcase my open-source security tools, SPL detection rules, Python automation scripts and threat hunting playbooks. Stay tuned!</span>
     <span class="it-content" style="display:none">Questa sezione presenterà i miei strumenti di sicurezza open-source, regole di rilevamento SPL, script Python di automazione e playbook di threat hunting. Restate sintonizzati!</span>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="section-label" data-en="Portfolio" data-it="Portfolio">Portfolio</p>
+  <h2 class="section-title" data-en="Security Projects" data-it="Progetti di Sicurezza">Security Projects</h2>
+  <div class="section-divider"></div>
+  <p style="color:var(--gray);margin-bottom:2rem;font-size:0.95rem" data-en="Real-world automation and security engineering projects built on the technologies I use daily in enterprise SOC environments." data-it="Progetti reali di automazione e security engineering costruiti sulle tecnologie che utilizzo quotidianamente in ambienti SOC enterprise.">Real-world automation and security engineering projects built on the technologies I use daily in enterprise SOC environments.</p>
+
+  <div class="projects-grid">
+
+    <!-- Project 1: AD → Recorded Future -->
+    <div class="project-card">
+      <div class="project-card-top">
+        <span class="project-icon">🔄</span>
+        <span class="project-status status-done" data-en="Completed" data-it="Completato">Completed</span>
+      </div>
+      <div>
+        <p class="project-name" data-en="Active Directory → Recorded Future Sync" data-it="Sincronizzazione Active Directory → Recorded Future">Active Directory → Recorded Future Sync</p>
+      </div>
+      <p class="project-desc en-content" data-en="">
+        Python automation script that collects all user accounts from Active Directory via LDAP, classifies them as Active or Disabled based on the <code style="color:var(--gold);font-size:0.82rem">userAccountControl</code> bitmask, and performs a delta sync to maintain two dedicated lists in Recorded Future — enabling real-time identity context for SOC alert enrichment in Splunk SIEM and SOAR playbooks.
+      </p>
+      <p class="project-desc it-content" style="display:none">
+        Script Python che raccoglie tutti gli account utente da Active Directory via LDAP, li classifica come Attivi o Disabilitati tramite il bitmask <code style="color:var(--gold);font-size:0.82rem">userAccountControl</code>, e sincronizza due liste dedicate su Recorded Future — fornendo contesto identità in tempo reale per l'enrichment degli alert in Splunk SIEM e nei playbook SOAR.
+      </p>
+      <div class="project-stack">
+        <span class="project-tag">Python 3.10+</span>
+        <span class="project-tag">ldap3</span>
+        <span class="project-tag">Active Directory</span>
+        <span class="project-tag">Recorded Future</span>
+        <span class="project-tag">Splunk SOAR</span>
+        <span class="project-tag">REST API</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/eddwil32/ad-rf-sync" class="project-link project-link-github" target="_blank">⬡ GitHub</a>
+        <a href="#courses" class="project-link project-link-docs" data-en="📄 README" data-it="📄 README">📄 README</a>
+      </div>
+    </div>
+
+    <!-- Placeholder card 2 -->
+    <div class="project-card" style="border-style:dashed;opacity:0.6">
+      <div class="project-card-top">
+        <span class="project-icon">🛡️</span>
+        <span class="project-status status-wip" data-en="Coming Soon" data-it="In Arrivo">Coming Soon</span>
+      </div>
+      <div>
+        <p class="project-name" data-en="Splunk Detection Rules Library" data-it="Libreria Regole di Rilevamento Splunk">Splunk Detection Rules Library</p>
+      </div>
+      <p class="project-desc" data-en="A curated collection of SPL detection rules mapped to MITRE ATT&amp;CK, covering credential theft, lateral movement, and persistence techniques observed in enterprise environments." data-it="Una raccolta curata di regole SPL mappate su MITRE ATT&amp;CK, che copre furto di credenziali, movimenti laterali e tecniche di persistenza osservate in ambienti enterprise.">A curated collection of SPL detection rules mapped to MITRE ATT&amp;CK, covering credential theft, lateral movement, and persistence techniques observed in enterprise environments.</p>
+      <div class="project-stack">
+        <span class="project-tag">Splunk SPL</span>
+        <span class="project-tag">MITRE ATT&CK</span>
+        <span class="project-tag">Blue Team</span>
+        <span class="project-tag">Threat Detection</span>
+      </div>
+    </div>
+
+    <!-- Placeholder card 3 -->
+    <div class="project-card" style="border-style:dashed;opacity:0.6">
+      <div class="project-card-top">
+        <span class="project-icon">🤖</span>
+        <span class="project-status status-wip" data-en="Coming Soon" data-it="In Arrivo">Coming Soon</span>
+      </div>
+      <div>
+        <p class="project-name" data-en="SOAR Incident Response Playbook" data-it="Playbook di Incident Response su SOAR">SOAR Incident Response Playbook</p>
+      </div>
+      <p class="project-desc" data-en="Automated incident response playbook built on Splunk SOAR for phishing triage: email header analysis, IOC extraction, sandbox detonation, and auto-containment via Palo Alto and Microsoft Defender." data-it="Playbook automatizzato di incident response su Splunk SOAR per il triage del phishing: analisi degli header email, estrazione IOC, detonazione sandbox e contenimento automatico via Palo Alto e Microsoft Defender.">Automated incident response playbook built on Splunk SOAR for phishing triage: email header analysis, IOC extraction, sandbox detonation, and auto-containment via Palo Alto and Microsoft Defender.</p>
+      <div class="project-stack">
+        <span class="project-tag">Splunk SOAR</span>
+        <span class="project-tag">Python</span>
+        <span class="project-tag">Palo Alto</span>
+        <span class="project-tag">MS Defender</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
